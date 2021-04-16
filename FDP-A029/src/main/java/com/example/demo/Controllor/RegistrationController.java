@@ -16,7 +16,7 @@ public class RegistrationController{
 	RegistrationService registrationService;
 	@PostMapping("register")
 	public ResponseEntity<User>  registerUser(@RequestBody User u) {
-		
+	
 		return new ResponseEntity(registrationService.registerUser(u), HttpStatus.OK);
 		
 
