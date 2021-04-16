@@ -23,8 +23,5 @@ public class RegistrationController{
 		
 
 }
-	@GetMapping("greet")
-	public String greet() {
-		return "hello";
-	}
+
 }
