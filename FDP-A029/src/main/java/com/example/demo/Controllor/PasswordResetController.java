@@ -4,31 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.User;
-import com.example.demo.Service.RegistrationService;
+import com.example.demo.Service.ValidateForgetPasswordService;
 
 @RestController
-public class RegistrationController{
-	
+public class PasswordResetController {
 	@Autowired
-	RegistrationService registrationService;
-	@PostMapping("/register")
+	ValidateForgetPasswordService ValidateForgetPasswordService;
+
+	@PostMapping("validatePasswordReset")
 	@CrossOrigin(origins="http://localhost:4200")
-	public ResponseEntity<Object>  registerUser(@RequestBody User u) {
+	public ResponseEntity<Object> validatePasswordReset(@RequestBody User u){
 		try {
-		User user=registrationService.registerUser(u);
-		return new ResponseEntity<Object>(user, HttpStatus.OK);
-		}
-		catch (Exception e) {
-			return new ResponseEntity<Object>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
 		
-
-}
-
+		return new ResponseEntity<Object>(ValidateForgetPasswordService.validateDetails(u),HttpStatus.OK);
+		}
+		catch(Exception e) {
+			return new ResponseEntity<Object>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }
