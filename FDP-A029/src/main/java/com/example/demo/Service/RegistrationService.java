@@ -13,9 +13,7 @@ public class RegistrationService {
 	RegistrationDao reg;
 
 	public User registerUser(User user) {
-	System.out.println("inside service");
 	
-	System.out.println("inside service");
 	User u = reg.insertUser(user);
 	
 	return u;
