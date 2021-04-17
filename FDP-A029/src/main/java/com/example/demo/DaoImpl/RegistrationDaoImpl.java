@@ -28,6 +28,7 @@ public class RegistrationDaoImpl implements RegistrationDao{
 		return null;
 	}
 
+	
 	@Override
 	public String getUserName(String User_id) {
 		// TODO Auto-generated method stub
