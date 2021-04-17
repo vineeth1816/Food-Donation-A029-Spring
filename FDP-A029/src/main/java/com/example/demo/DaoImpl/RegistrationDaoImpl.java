@@ -14,7 +14,7 @@ public class RegistrationDaoImpl implements RegistrationDao{
 
 	@Override
 	public User insertUser(User u) {
-		int i=jdbcTemplate.update("INSERT INTO Users VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",u.getUserId(),u.getFirstName(),u.getLastName(),u.getDob(),u.getGender(),u.getContactNo(),u.getPassword(),u.getUserCategory(),u.getSq1(),u.getSq2(),u.getSq3(),u.getEmailId());
+		int i=jdbcTemplate.update("INSERT INTO users VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",u.getUserId(),u.getFirstName(),u.getLastName(),u.getDob(),u.getGender(),u.getContactNo(),u.getPassword(),u.getUserCategory(),u.getSq1(),u.getSq2(),u.getSq3(),u.getEmailId());
 		if(i>0)
 		return u;
 		else
