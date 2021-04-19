@@ -23,6 +23,7 @@ public class FoodDonationController {
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> insertDonationRequest(@RequestBody FoodDonationRequest foodDonationRequest){
 		try {
+			System.out.println(foodDonationRequest);
 			return new ResponseEntity<Object>(foodDonationService.insertRequest(foodDonationRequest),HttpStatus.OK);
 		}
 		catch (Exception e) {
