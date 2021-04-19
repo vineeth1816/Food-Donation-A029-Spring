@@ -17,8 +17,8 @@ public class RegistrationController{
 	
 	@Autowired
 	RegistrationService registrationService;
+	
 	@PostMapping("/register")
-
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object>  registerUser(@RequestBody User u) {
 		try {
