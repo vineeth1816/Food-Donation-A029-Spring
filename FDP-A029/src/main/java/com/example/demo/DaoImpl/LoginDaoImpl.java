@@ -50,7 +50,7 @@ public class LoginDaoImpl implements LoginDao{
 				User u=new User();
 				u.setFirstName(rs.getString("First_name"));
 				u.setLastName(rs.getString("Last_name"));
-
+				u.setUserCategory(rs.getString("User_category"));
 				return u;
 			}
 			
