@@ -47,6 +47,7 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 				fdr.setContactNo(rs.getString("Contact_No"));
 				fdr.setPurpose(rs.getString("Purpose"));
 				fdr.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				fdr.setStatus(rs.getString("Status"));
 				return fdr;
 			}
 			
