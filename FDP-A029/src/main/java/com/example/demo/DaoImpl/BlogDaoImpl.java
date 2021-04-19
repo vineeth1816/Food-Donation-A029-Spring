@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +22,28 @@ public class BlogDaoImpl implements BlogDao{
 	
 	@Override
 	public Blog getBlog(int blogId) {
+		Blog blog;
+		try {
+			
+		blog=JdbcTemplate.query("SELECT * FROM blogs WHERE Blog_ID=?",new ResultSetExtractor<Blog>() {
+
+			@Override
+			public Blog extractData(ResultSet rs) throws SQLException, DataAccessException {
+				rs.next();
+				Blog b=new Blog();
+				b.setBlog_ID(rs.getInt("Blog_ID"));
+				b.setBlog_Title(rs.getString("Blog_Title"));
+				b.setDescription(rs.getString("Description"));
+				return b;
+			}
+			
+		},blogId);
+		return blog;
+		}
+		catch(Exception e) {
+			return null;
+		}
 		
-		return null;
 	}
 
 	@Override

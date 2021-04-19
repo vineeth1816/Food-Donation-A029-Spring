@@ -32,4 +32,7 @@ public class BlogService {
 	public List<Blog> viewAllBlogs(){
 		return blogDaoImpl.viewAllBlogs();
 	}
+	public Blog getBlog(int Blog_ID) {
+		return blogDaoImpl.getBlog(Blog_ID);
+	}
 }
