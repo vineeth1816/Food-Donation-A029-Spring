@@ -40,6 +40,7 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 			@Override
 			public FoodDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
 				FoodDonationRequest fdr=new FoodDonationRequest();
+				fdr.setDonationId(rs.getString("Donation_ID"));
 				fdr.setUserId(rs.getString("User_ID"));
 				fdr.setName(rs.getString("Name"));
 				fdr.setLocation(rs.getString("Location"));
