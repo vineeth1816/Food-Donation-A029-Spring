@@ -1,0 +1,13 @@
+package com.example.demo.Dao;
+
+import java.util.List;
+
+import com.example.demo.Model.Blog;
+
+public interface BlogDao {
+
+	public Blog getBlog(int blogId);
+	public Blog insertBlog(Blog blog);
+	public Boolean deleteBlog(int Blog_ID);
+	public List<Blog> viewAllBlogs();
+}
