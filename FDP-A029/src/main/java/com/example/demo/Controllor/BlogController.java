@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ public class BlogController {
 	BlogService blogService;
 
 	@PostMapping("addBlog")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> addBlog(@RequestBody Blog blog) {
 
 		try {
@@ -33,6 +35,7 @@ public class BlogController {
 	}
 
 	@PutMapping("updateBlog")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> updateBlog(@RequestBody Blog blog) {
 		try {
 
@@ -43,6 +46,7 @@ public class BlogController {
 	}
 
 	@DeleteMapping("deleteBlog")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> deleteBlog(@RequestBody Blog blog) {
 		try {
 
@@ -53,6 +57,7 @@ public class BlogController {
 	}
 
 	@GetMapping("viewAllBlogs")
+	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<Blog>> viewAllBlogs() {
 		
 		List<Blog> s=blogService.viewAllBlogs();
