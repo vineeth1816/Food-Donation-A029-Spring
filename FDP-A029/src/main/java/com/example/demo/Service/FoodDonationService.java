@@ -15,10 +15,15 @@ public class FoodDonationService {
 	FoodDonationDaoImpl foodDonationDaoImpl;
 	
 	public FoodDonationRequest insertRequest(FoodDonationRequest foodDonationRequest) {
+		System.out.println(foodDonationRequest);
 		return foodDonationDaoImpl.insertRequest(foodDonationRequest);
 	}
 	
 	public List<FoodDonationRequest> getAllRequests(){
 		return foodDonationDaoImpl.getAllRequests();
+	}
+	
+	public List<FoodDonationRequest> getRequestsByUserid(String userid){
+		return foodDonationDaoImpl.getRequestsById(userid);
 	}
 }

@@ -36,4 +36,12 @@ public class FoodDonationController {
 	public ResponseEntity<List<FoodDonationRequest>> getAllRequests(){
 		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getAllRequests(),HttpStatus.OK);
 	}
+	
+	@PostMapping("getrequestsById")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<FoodDonationRequest>> getRequestsById(@RequestBody FoodDonationRequest foodDonationRequest){
+		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getRequestsByUserid(foodDonationRequest.getUserId()),HttpStatus.OK);
+	}
+	
+	
 }
