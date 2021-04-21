@@ -9,4 +9,7 @@ public interface FoodDonationDao {
 	public FoodDonationRequest insertRequest(FoodDonationRequest foodDonationRequest);
 	public List<FoodDonationRequest> getAllRequests();
 	public List<FoodDonationRequest> getRequestsById(String userId);
+	public Boolean updateStatus(String donationId,String status);
+	
+	public String getStatus(String donationId);
 }

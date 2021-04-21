@@ -43,4 +43,19 @@ public class FoodDonationController {
 	}
 	
 	
+	@PostMapping("changeStatus")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<Object> changeStatus(@RequestBody FoodDonationRequest foodDonationRequest){
+		return new ResponseEntity<Object>(foodDonationService.updateStatus(foodDonationRequest.getDonationId(),foodDonationRequest.getStatus()),HttpStatus.OK);
+	}
+	
+//	@PostMapping("getStatus")
+//	@CrossOrigin(origins="http://localhost:4200")
+//	public ResponseEntity<Object> getStatus(@RequestBody FoodDonationRequest foodDonationRequest){
+//		return new ResponseEntity<Object>(foodDonationService.approveRequest(foodDonationRequest.getDonationId()),HttpStatus.OK);
+//	}
+	
+	
+	
+	
 }

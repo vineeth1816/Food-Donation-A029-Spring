@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -78,5 +80,41 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		return foodDonationRequests;
 		
 	}
+
+	@Override
+	public Boolean updateStatus(String donationId,String status) {
+		int flag;
+		
+		try {
+			flag=jdbcTemplate.update("UPDATE Food_Donation_Requests SET Status=? WHERE Donation_ID=?" , status,donationId);
+			if(flag>0) {
+				return true;
+				
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+	
+	
+
+	@Override
+	public String getStatus(String donationId) {
+		String s;
+		s=jdbcTemplate.query("select * from Food_Donation_Requests WHERE Donation_ID=?",new ResultSetExtractor<String>() {
+
+			@Override
+			public String extractData(ResultSet rs) throws SQLException, DataAccessException {
+				rs.next();
+				
+				return rs.getString("Status");
+			}
+			
+		},donationId);
+		return s;
+	}
+	
 
 }
