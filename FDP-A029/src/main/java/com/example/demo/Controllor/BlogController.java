@@ -47,9 +47,11 @@ public class BlogController {
 		}
 	}
 
+
 	@DeleteMapping("deleteBlog/{id}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> deleteBlog(@PathVariable int id) {
+
 		try {
 
 			return new ResponseEntity<Object>(blogService.deleteBlog(id), HttpStatus.OK);
