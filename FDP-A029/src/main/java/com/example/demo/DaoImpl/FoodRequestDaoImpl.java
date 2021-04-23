@@ -83,4 +83,39 @@ public class FoodRequestDaoImpl implements FoodRequestDao{
 		
 	}
 
+
+	@Override
+	public Boolean updateStatus(String requestId, String status) {
+int flag;
+		
+		try {
+			flag=jdbcTemplate.update("UPDATE Food_Requests SET Status=? WHERE Request_ID=?" , status,requestId);
+			if(flag>0) {
+				return true;
+				
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+
+
+	@Override
+	public Boolean insertAdminRequest(String requestId, String category) {
+		
+		int flag;
+		try {
+		flag=jdbcTemplate.update("insert into Admin_Requests values(?,?)", requestId,category);
+		if(flag>0) {
+			return true;
+		}
+		return false;
+		}
+		catch (Exception e) {
+			return false;
+		}
+	}
+
 }

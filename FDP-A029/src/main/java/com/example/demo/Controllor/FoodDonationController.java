@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.FoodDonationRequest;
+import com.example.demo.Model.FoodRequest;
 import com.example.demo.Service.FoodDonationService;
 
 @RestController
@@ -49,6 +50,7 @@ public class FoodDonationController {
 	public ResponseEntity<Object> changeStatus(@RequestBody FoodDonationRequest foodDonationRequest){
 		return new ResponseEntity<Object>(foodDonationService.updateStatus(foodDonationRequest.getDonationId(),foodDonationRequest.getStatus()),HttpStatus.OK);
 	}
+	
 	
 //	@PostMapping("getStatus")
 //	@CrossOrigin(origins="http://localhost:4200")

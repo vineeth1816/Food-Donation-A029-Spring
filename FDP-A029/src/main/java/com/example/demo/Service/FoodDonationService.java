@@ -31,7 +31,12 @@ public class FoodDonationService {
 		return foodDonationDaoImpl.updateStatus(donationId,status);
 	}
 	
-	public String getStatus(String donationId) {
-		return null;
+	public List<FoodDonationRequest> getAllApprovedDonors(){
+		return foodDonationDaoImpl.getAllApprovedRequests();
 	}
+	
+	
+//	public String getStatus(String donationId) {
+//		return null;
+//	}
 }

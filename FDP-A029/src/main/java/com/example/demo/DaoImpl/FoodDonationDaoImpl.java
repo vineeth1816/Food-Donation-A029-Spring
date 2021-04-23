@@ -57,6 +57,27 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		});
 		return foodDonationRequests;
 	}
+	@Override
+	public List<FoodDonationRequest> getAllApprovedRequests() {
+		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where Status='Approved'", new RowMapper<FoodDonationRequest>() {
+
+			@Override
+			public FoodDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
+				FoodDonationRequest fdr=new FoodDonationRequest();
+				fdr.setDonationId(rs.getString("Donation_ID"));
+				fdr.setUserId(rs.getString("User_ID"));
+				fdr.setName(rs.getString("Name"));
+				fdr.setLocation(rs.getString("Location"));
+				fdr.setContactNo(rs.getString("Contact_No"));
+				fdr.setPurpose(rs.getString("Purpose"));
+				fdr.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				fdr.setStatus(rs.getString("Status"));
+				return fdr;
+			}
+			
+		});
+		return foodDonationRequests;
+	}
 
 	@Override
 	public List<FoodDonationRequest> getRequestsById(String userId) {

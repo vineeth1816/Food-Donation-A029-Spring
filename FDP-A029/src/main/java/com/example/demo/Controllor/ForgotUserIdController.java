@@ -18,7 +18,7 @@ public class ForgotUserIdController {
 
 	@PostMapping("forgotuserid")
 	@CrossOrigin(origins="http://localhost:4200")
-public User  registerUser(@RequestBody User user) {
+public User  recoverUserId(@RequestBody User user) {
 		
 		User us = forgotService.userIdRecovery(user);
 		return us;//new ResponseEntity(registrationService.registerUser(u), HttpStatus.OK);
