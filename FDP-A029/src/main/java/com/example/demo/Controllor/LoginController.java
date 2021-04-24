@@ -21,7 +21,7 @@ public class LoginController {
 
 	@PostMapping("/login")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public User registerUser(@RequestBody User user) {
+	public User login(@RequestBody User user) {
 
 		User u = loginService.loginUser(user);
 		return u;
@@ -32,7 +32,7 @@ public class LoginController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	public User registerUser(@PathVariable String id) {
 
-		System.out.println(id);
+		
 		User u = loginService.getUser(id);
 		return u;
 
