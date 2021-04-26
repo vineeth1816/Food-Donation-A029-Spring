@@ -25,20 +25,20 @@ public class LogisticDonationService {
 		return logisticDonationDaoImpl.getAllRequests();
 	}
 	
-//	public List<FoodDonationRequest> getRequestsByUserid(String userid){
-//		return foodDonationDaoImpl.getRequestsById(userid);
-//	}
-//	
-//	public Boolean updateStatus(String donationId,String status) {
-//		return foodDonationDaoImpl.updateStatus(donationId,status);
-//	}
-//	
-//	public List<FoodDonationRequest> getAllApprovedDonors(){
-//		return foodDonationDaoImpl.getAllApprovedRequests();
-//	}
+	public List<LogisticDonationRequest> getRequestsByUserid(String userid){
+		return logisticDonationDaoImpl.getRequestsById(userid);
+	}
+	
+	public Boolean updateStatus(String donationId,String status) {
+		return logisticDonationDaoImpl.updateStatus(donationId,status);
+	}
+	
+	public List<LogisticDonationRequest> getAllPendingDonors(){
+		return logisticDonationDaoImpl.getAllPendingDonors();
+	}
 	
 	
-//	public String getStatus(String donationId) {
-//		return null;
-//	}
+	public String getStatus(String donationId) {
+		return null;
+	}
 }
