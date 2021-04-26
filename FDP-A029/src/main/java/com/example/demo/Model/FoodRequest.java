@@ -4,6 +4,12 @@ import java.util.Date;
 
 public class FoodRequest {
 
+	@Override
+	public String toString() {
+		return "FoodRequest [requestId=" + requestId + ", userId=" + userId + ", name=" + name + ", location="
+				+ location + ", contactNo=" + contactNo + ", occation=" + occation + ", noOfPackets=" + noOfPackets
+				+ ", status=" + status + ", date=" + date + "]";
+	}
 	private String requestId;
 	private String userId;
 	private String name;

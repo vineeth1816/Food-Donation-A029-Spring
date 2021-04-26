@@ -39,6 +39,7 @@ public class FoodRequestController {
 	@GetMapping("getAllFoodRequests")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<FoodRequest>> getAllFoodRequests(){
+		System.out.println(foodRequestService.getAllFoodRequests());
 		return new ResponseEntity<List<FoodRequest>>(foodRequestService.getAllFoodRequests(),HttpStatus.OK);
 	}
 	
