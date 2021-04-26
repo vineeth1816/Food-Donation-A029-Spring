@@ -9,10 +9,10 @@ public interface LogisticDonationDao {
 
 	public LogisticDonationRequest insertRequest(LogisticDonationRequest logisticDonationRequest);
 	public List<LogisticDonationRequest> getAllRequests();
-//	public List<FoodDonationRequest> getRequestsById(String userId);
-//	public Boolean updateStatus(String donationId,String status);
-//	public List<FoodDonationRequest> getAllApprovedRequests();
-//	
-//	
-//	public String getStatus(String donationId);
+	public List<LogisticDonationRequest> getRequestsById(String userId);
+	public Boolean updateStatus(String donationId,String status);
+	public List<LogisticDonationRequest> getAllPendingDonors();
+	
+	
+	public String getStatus(String donationId);
 }

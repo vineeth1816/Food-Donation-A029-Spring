@@ -58,85 +58,83 @@ public class LogisticDonationDaoImpl implements LogisticDonationDao{
 		});
 		return logisticDonationRequests;
 	}
-//	@Override
-//	public List<FoodDonationRequest> getAllApprovedRequests() {
-//		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where Status='Approved'", new RowMapper<FoodDonationRequest>() {
-//
-//			@Override
-//			public FoodDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
-//				FoodDonationRequest fdr=new FoodDonationRequest();
-//				fdr.setDonationId(rs.getString("Donation_ID"));
-//				fdr.setUserId(rs.getString("User_ID"));
-//				fdr.setName(rs.getString("Name"));
-//				fdr.setLocation(rs.getString("Location"));
-//				fdr.setContactNo(rs.getString("Contact_No"));
-//				fdr.setPurpose(rs.getString("Purpose"));
-//				fdr.setNoOfPackets(rs.getInt("No_Of_Packets"));
-//				fdr.setStatus(rs.getString("Status"));
-//				return fdr;
-//			}
-//			
-//		});
-//		return foodDonationRequests;
-//	}
-//
-//	@Override
-//	public List<FoodDonationRequest> getRequestsById(String userId) {
-//		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where User_ID=?", new RowMapper<FoodDonationRequest>() {
-//
-//			@Override
-//			public FoodDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
-//				FoodDonationRequest fdr=new FoodDonationRequest();
-//				fdr.setDonationId(rs.getString("Donation_ID"));
-//				fdr.setUserId(rs.getString("User_ID"));
-//				fdr.setName(rs.getString("Name"));
-//				fdr.setLocation(rs.getString("Location"));
-//				fdr.setContactNo(rs.getString("Contact_No"));
-//				fdr.setPurpose(rs.getString("Purpose"));
-//				fdr.setNoOfPackets(rs.getInt("No_Of_Packets"));
-//				fdr.setStatus(rs.getString("Status"));
-//				return fdr;
-//			}
-//			
-//		},userId);
-//		return foodDonationRequests;
-//		
-//	}
-//
-//	@Override
-//	public Boolean updateStatus(String donationId,String status) {
-//		int flag;
-//		
-//		try {
-//			flag=jdbcTemplate.update("UPDATE Food_Donation_Requests SET Status=? WHERE Donation_ID=?" , status,donationId);
-//			if(flag>0) {
-//				return true;
-//				
-//			}
-//		}
-//		catch (Exception e) {
-//			return false;
-//		}
-//		return false;
-//	}
-//	
-//	
-//
-//	@Override
-//	public String getStatus(String donationId) {
-//		String s;
-//		s=jdbcTemplate.query("select * from Food_Donation_Requests WHERE Donation_ID=?",new ResultSetExtractor<String>() {
-//
-//			@Override
-//			public String extractData(ResultSet rs) throws SQLException, DataAccessException {
-//				rs.next();
-//				
-//				return rs.getString("Status");
-//			}
-//			
-//		},donationId);
-//		return s;
-//	}
+	@Override
+	public List<LogisticDonationRequest> getAllPendingDonors() {
+		List<LogisticDonationRequest> logisticDonationRequests=jdbcTemplate.query("select * from Logistic_Donation_Requests where status='Approved' OR status='Pending for Approval'", new RowMapper<LogisticDonationRequest>() {
+
+			@Override
+			public LogisticDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
+				LogisticDonationRequest fdr=new LogisticDonationRequest();
+				fdr.setDonationId(rs.getString("donation_Id"));
+				fdr.setUserId(rs.getString("user_Id"));
+				fdr.setName(rs.getString("name"));
+				fdr.setLocation(rs.getString("location"));
+				fdr.setContactNo(rs.getString("contactNo"));
+				fdr.setPurpose(rs.getString("purpose"));
+				fdr.setStatus(rs.getString("status"));
+				return fdr;
+			}
+			
+		});
+		return logisticDonationRequests;
+	}
+
+	@Override
+	public List<LogisticDonationRequest> getRequestsById(String userId) {
+		List<LogisticDonationRequest> logisticDonationRequests=jdbcTemplate.query("select * from Logistic_Donation_Requests where user_Id=? order by donation_Id desc", new RowMapper<LogisticDonationRequest>() {
+
+			@Override
+			public LogisticDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
+				LogisticDonationRequest fdr=new LogisticDonationRequest();
+				fdr.setDonationId(rs.getString("donation_Id"));
+				fdr.setUserId(rs.getString("user_Id"));
+				fdr.setName(rs.getString("name"));
+				fdr.setLocation(rs.getString("location"));
+				fdr.setContactNo(rs.getString("contactNo"));
+				fdr.setPurpose(rs.getString("purpose"));
+				fdr.setStatus(rs.getString("status"));
+				return fdr;
+			}
+			
+		},userId);
+		return logisticDonationRequests;
+		
+	}
+
+	@Override
+	public Boolean updateStatus(String donationId,String status) {
+		int flag;
+		
+		try {
+			flag=jdbcTemplate.update("UPDATE Logistic_Donation_Requests SET status=? WHERE donation_Id=?" , status,donationId);
+			if(flag>0) {
+				return true;
+				
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
+		return false;
+	}
+	
+	
+
+	@Override
+	public String getStatus(String donationId) {
+		String s;
+		s=jdbcTemplate.query("select * from Logistic_Donation_Requests WHERE donation_Id=?",new ResultSetExtractor<String>() {
+
+			@Override
+			public String extractData(ResultSet rs) throws SQLException, DataAccessException {
+				rs.next();
+				
+				return rs.getString("Status");
+			}
+			
+		},donationId);
+		return s;
+	}
 	
 
 }

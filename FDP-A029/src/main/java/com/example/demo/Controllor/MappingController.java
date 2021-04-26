@@ -1,6 +1,8 @@
 package com.example.demo.Controllor;
 
 
+import java.util.List;
+
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jackson.JsonObjectDeserializer;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.FoodDonationRequest;
 import com.example.demo.Model.FoodRequest;
+import com.example.demo.Model.MappedRequests;
 import com.example.demo.Service.MappingService;
 import com.fasterxml.jackson.databind.util.JSONPObject;
  
@@ -35,5 +38,12 @@ public class MappingController {
 		if(valid)
 			return new ResponseEntity<Object>(valid,HttpStatus.OK);
 		return new ResponseEntity<Object>(valid,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+
+	@GetMapping("getAllMappedRequests")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<MappedRequests>> getAllRequests(){
+		return new ResponseEntity<List<MappedRequests>>(mappingService.getAllRequests(),HttpStatus.OK);
 	}
 }

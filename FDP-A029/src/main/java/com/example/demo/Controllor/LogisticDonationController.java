@@ -40,26 +40,31 @@ public class LogisticDonationController {
 		return new ResponseEntity<List<LogisticDonationRequest>>(logisticDonationService.getAllRequests(),HttpStatus.OK);
 	}
 	
-//	@PostMapping("getrequestsById")
-//	@CrossOrigin(origins="http://localhost:4200")
-//	public ResponseEntity<List<FoodDonationRequest>> getRequestsById(@RequestBody FoodDonationRequest foodDonationRequest){
-//		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getRequestsByUserid(foodDonationRequest.getUserId()),HttpStatus.OK);
-//	}
-//	
-//	
-//	@PostMapping("changeStatus")
-//	@CrossOrigin(origins="http://localhost:4200")
-//	public ResponseEntity<Object> changeStatus(@RequestBody FoodDonationRequest foodDonationRequest){
-//		return new ResponseEntity<Object>(foodDonationService.updateStatus(foodDonationRequest.getDonationId(),foodDonationRequest.getStatus()),HttpStatus.OK);
-//	}
-//	
+	@PostMapping("getLogisticDonationRequestsById")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<LogisticDonationRequest>> getRequestsById(@RequestBody LogisticDonationRequest logisticDonationRequest){
+		return new ResponseEntity<List<LogisticDonationRequest>>(logisticDonationService.getRequestsByUserid(logisticDonationRequest.getUserId()),HttpStatus.OK);
+	}
+	
+
+	@PostMapping("changeStatusLogisticDonationRequest")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<Object> changeStatus(@RequestBody LogisticDonationRequest logisticDonationRequest){
+		return new ResponseEntity<Object>(logisticDonationService.updateStatus(logisticDonationRequest.getDonationId(),logisticDonationRequest.getStatus()),HttpStatus.OK);
+	}
+	@GetMapping("getAllPendingLogisticDonationRequests")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<LogisticDonationRequest>> getAllPendingRequests(){
+		return new ResponseEntity<List<LogisticDonationRequest>>(logisticDonationService.getAllPendingDonors(),HttpStatus.OK);
+	}
+	
 //	
 //	@PostMapping("getStatus")
 //	@CrossOrigin(origins="http://localhost:4200")
-//	public ResponseEntity<Object> getStatus(@RequestBody FoodDonationRequest foodDonationRequest){
-//		return new ResponseEntity<Object>(foodDonationService.approveRequest(foodDonationRequest.getDonationId()),HttpStatus.OK);
+//	public ResponseEntity<Object> getStatus(@RequestBody LogisticDonationRequest logisticDonationRequest){
+//		return new ResponseEntity<Object>(logisticDonationService.approveRequest(logisticDonationRequest.getDonationId()),HttpStatus.OK);
 //	}
-	
+//	
 	
 	
 	
