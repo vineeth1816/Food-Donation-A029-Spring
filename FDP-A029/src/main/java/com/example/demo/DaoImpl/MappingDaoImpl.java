@@ -15,8 +15,9 @@ public class MappingDaoImpl implements MappingDao {
 
 	@Override
 	public Boolean mapRequestDonor(String requestID, String donorID) {
+		System.out.println(requestID+"  "+donorID);
 		int flag;
-		flag=jdbcTemplate.update("insert into Mapped_Requests(Donation_Id,Request_Id,Status) values(?,?,?)",donorID, requestID,"Pending for logistics Assignment");
+		flag=jdbcTemplate.update("insert into Mapped_Requests(Donation_Id,Request_Id,Status) values(?,?,?)",donorID,requestID,"Pending for logistics Assignment");
 		if(flag>0)
 			return true;
 		else

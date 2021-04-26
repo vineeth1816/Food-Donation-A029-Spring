@@ -81,7 +81,7 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 
 	@Override
 	public List<FoodDonationRequest> getRequestsById(String userId) {
-		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where User_ID=?", new RowMapper<FoodDonationRequest>() {
+		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where User_ID=? order by Donation_ID desc", new RowMapper<FoodDonationRequest>() {
 
 			@Override
 			public FoodDonationRequest mapRow(ResultSet rs, int rowNum) throws SQLException {

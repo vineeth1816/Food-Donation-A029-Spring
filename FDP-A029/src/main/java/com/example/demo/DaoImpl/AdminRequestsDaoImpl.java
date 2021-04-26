@@ -33,6 +33,7 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 				f.setRequestId(rs.getString("Request_ID"));
 				f.setNoOfPackets(rs.getInt("No_Of_Packets"));
 				f.setDate(rs.getDate("Date"));
+				f.setName(rs.getString("Name"));
 				f.setOccation(rs.getString("Occation"));
 				return f;
 			}
@@ -84,6 +85,7 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 				f.setLocation(rs.getString("Location"));
 				f.setRequestId(rs.getString("Request_ID"));
 				f.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				f.setName(rs.getString("Name"));
 				f.setDate(rs.getDate("Date"));
 				f.setOccation(rs.getString("Occation"));
 				return f;
@@ -107,6 +109,7 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 				f.setLocation(rs.getString("Location"));
 				f.setRequestId(rs.getString("Request_ID"));
 				f.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				f.setName(rs.getString("Name"));
 				f.setDate(rs.getDate("Date"));
 				f.setOccation(rs.getString("Occation"));
 				return f;
@@ -129,6 +132,7 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 				f.setLocation(rs.getString("Location"));
 				f.setRequestId(rs.getString("Request_ID"));
 				f.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				f.setName(rs.getString("Name"));
 				f.setDate(rs.getDate("Date"));
 				f.setOccation(rs.getString("Occation"));
 				return f;
@@ -150,6 +154,7 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 				f.setLocation(rs.getString("Location"));
 				f.setRequestId(rs.getString("Request_ID"));
 				f.setNoOfPackets(rs.getInt("No_Of_Packets"));
+				f.setName(rs.getString("Name"));
 				f.setDate(rs.getDate("Date"));
 				f.setOccation(rs.getString("Occation"));
 				return f;
