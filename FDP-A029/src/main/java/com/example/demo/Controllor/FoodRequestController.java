@@ -65,9 +65,11 @@ public class FoodRequestController {
 	@GetMapping("insertAdminRequest/{requestId}/{category}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> insertAdminRequest(@PathVariable String requestId,@PathVariable String category){
+		System.out.println(requestId + "in controller");
 		Boolean valid=foodRequestService.insertAdminRequest(requestId,category);
 		if(valid)
 		return new ResponseEntity<Object>(valid,HttpStatus.OK);
+		
 		return new ResponseEntity<Object>(valid,HttpStatus.INTERNAL_SERVER_ERROR);
 		
 	}

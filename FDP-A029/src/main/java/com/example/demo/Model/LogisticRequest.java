@@ -2,31 +2,12 @@ package com.example.demo.Model;
 
 public class LogisticRequest {
 
-	private String donationId;
-	private String userId;
-	private String name;
+	private String requestId;
 	private String location;
 	private String contactNo;
 	private String purpose;
 	private String status;
-	public String getDonationId() {
-		return donationId;
-	}
-	public void setDonationId(String donationId) {
-		this.donationId = donationId;
-	}
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getLocation() {
 		return location;
 	}
@@ -51,11 +32,15 @@ public class LogisticRequest {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getRequestId() {
+		return requestId;
+	}
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
 	@Override
 	public String toString() {
-		return "LogisticDonationRequest [donationId=" + donationId + ", userId=" + userId + ", name=" + name
-				+ ", location=" + location + ", contactNo=" + contactNo + ", purpose=" + purpose + ", status=" + status
-				+ "]";
+		return "LogisticRequest [requestId=" + requestId + ", location=" + location + ", contactNo=" + contactNo
+				+ ", purpose=" + purpose + ", status=" + status + "]";
 	}
-
 }

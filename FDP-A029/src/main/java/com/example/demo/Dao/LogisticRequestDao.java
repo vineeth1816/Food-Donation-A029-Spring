@@ -10,6 +10,7 @@ public interface LogisticRequestDao {
 
 	public LogisticRequest insertRequest(LogisticRequest logisticRequest);
 	public List<LogisticRequest> getAllRequests();
+	
 //	public List<FoodDonationRequest> getRequestsById(String userId);
 //	public Boolean updateStatus(String donationId,String status);
 //	public List<FoodDonationRequest> getAllApprovedRequests();

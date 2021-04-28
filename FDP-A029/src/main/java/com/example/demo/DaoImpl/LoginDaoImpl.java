@@ -48,6 +48,7 @@ public class LoginDaoImpl implements LoginDao{
 			public User extractData(ResultSet rs) throws SQLException, DataAccessException {
 				rs.next();
 				User u=new User();
+				u.setContactNo(rs.getString("Contact_no"));
 				u.setFirstName(rs.getString("First_name"));
 				u.setLastName(rs.getString("Last_name"));
 				u.setUserCategory(rs.getString("User_category"));

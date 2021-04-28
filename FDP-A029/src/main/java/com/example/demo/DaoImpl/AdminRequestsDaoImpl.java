@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.demo.Dao.AdminRequestsDao;
 import com.example.demo.Model.FoodRequest;
+import com.example.demo.Model.LogisticRequest;
 
 @Component
 public class AdminRequestsDaoImpl implements AdminRequestsDao {
@@ -41,6 +42,26 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		},category);
 		
 		return foodRequests;
+	}
+	
+	@Override
+	public List<LogisticRequest> getAllLogisticRequests(String category) {
+		List<LogisticRequest> logisticRequests=new ArrayList<LogisticRequest>();
+		logisticRequests=jdbcTemplate.query("SELECT * FROM Logistic_Requests  WHERE request_Id IN(SELECT RequestId FROM Admin_Requests  WHERE Category=?)",new RowMapper<LogisticRequest>() {
+
+			@Override
+			public LogisticRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
+				LogisticRequest f=new LogisticRequest();
+				f.setLocation(rs.getString("Location"));
+				f.setRequestId(rs.getString("request_Id"));
+				f.setContactNo(rs.getString("contactNo"));
+				f.setPurpose(rs.getString("purpose"));
+				return f;
+			}
+			
+		},category);
+		
+		return logisticRequests;
 	}
 
 	@Override

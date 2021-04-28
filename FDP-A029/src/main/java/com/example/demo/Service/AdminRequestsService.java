@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.DaoImpl.AdminRequestsDaoImpl;
 import com.example.demo.Model.FoodRequest;
+import com.example.demo.Model.LogisticRequest;
 
 import ch.qos.logback.classic.db.names.ColumnName;
 
@@ -19,6 +20,12 @@ public class AdminRequestsService {
 	public List<FoodRequest> getAllFoodRequests(String category){
 		return adminRequestsDaoImpl.getAllFoodRequests(category);
 	}
+	
+	public List<LogisticRequest> getAllLogisticRequests(String category){
+		
+		return adminRequestsDaoImpl.getAllLogisticRequests(category);
+	}
+	
 	public List<FoodRequest> getAllFoodRequestsOrderByColumn(String category,String columnName){
 		if(columnName.equals("NoOfPackets"))
 			return adminRequestsDaoImpl.getAllFoodRequestsOrderByQuantity(category);

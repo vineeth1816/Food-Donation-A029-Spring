@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Model.FoodRequest;
+import com.example.demo.Model.LogisticRequest;
 import com.example.demo.Service.AdminRequestsService;
 @RestController
 public class AdminRequestsController {
@@ -30,6 +31,19 @@ public class AdminRequestsController {
 			return new ResponseEntity<List<FoodRequest>>(adminRequestsService.getAllFoodRequests(category),HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping("getAllAdminLogisticRequests/{category}")
+	@CrossOrigin(origins="http://localhost:4200")
+	public ResponseEntity<List<LogisticRequest>> getAllLogisticRequests(@PathVariable String category){
+		try {
+			
+		return new ResponseEntity<List<LogisticRequest>>(adminRequestsService.getAllLogisticRequests(category),HttpStatus.OK);
+		}
+		catch (Exception e) {
+			return new ResponseEntity<List<LogisticRequest>>(adminRequestsService.getAllLogisticRequests(category),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	
 	@GetMapping("getAllAdminFoodRequestsOrderBy/{category}/{column}")
 	@CrossOrigin(origins="http://localhost:4200")

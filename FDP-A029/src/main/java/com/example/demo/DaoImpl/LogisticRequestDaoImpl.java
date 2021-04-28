@@ -28,8 +28,10 @@ public class LogisticRequestDaoImpl implements LogisticRequestDao{
 	public LogisticRequest insertRequest(LogisticRequest logisticRequest) {
 		int flag;
 		try {
-			flag=jdbcTemplate.update("INSERT INTO Logistic_Donation_Requests(user_Id,name,location,contactNo,purpose,status) values(?,?,?,?,?,?)", logisticRequest.getUserId(),logisticRequest.getName(),logisticRequest.getLocation(),logisticRequest.getContactNo(),logisticRequest.getPurpose(),"Pending for Approval");
+			flag=jdbcTemplate.update("INSERT INTO Logistic_Requests(location,contactNo,purpose,status) values(?,?,?,?)",logisticRequest.getLocation(),logisticRequest.getContactNo(),logisticRequest.getPurpose(),"Pending for Volunteering");
 			if(flag>0) {
+				String reqId=jdbcTemplate.queryForObject("select max(request_Id) from Logistic_Requests",new Object[] {},String.class);
+				logisticRequest.setRequestId(reqId);
 				return logisticRequest;
 			}
 		}
@@ -47,9 +49,7 @@ public class LogisticRequestDaoImpl implements LogisticRequestDao{
 			@Override
 			public LogisticRequest mapRow(ResultSet rs, int rowNum) throws SQLException {
 				LogisticRequest lr=new LogisticRequest();
-				lr.setDonationId(rs.getString("donation_Id"));
-				lr.setUserId(rs.getString("user_Id"));
-				lr.setName(rs.getString("name"));
+		        lr.setRequestId(rs.getString("request_Id"));
 				lr.setLocation(rs.getString("location"));
 				lr.setContactNo(rs.getString("contactNo"));
 				lr.setPurpose(rs.getString("purpose"));
