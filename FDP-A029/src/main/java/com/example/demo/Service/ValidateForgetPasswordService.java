@@ -11,6 +11,10 @@ public class ValidateForgetPasswordService {
 	@Autowired
 	ValidateForgotPasswordDaoImpl validateForgotPasswordDaoImpl;
 	
+	/*
+	 * Service method used to check the details provided by the user and validate 
+	 * them for password recovery.
+	 */
 	public boolean validateDetails(User u) {
 		try {
 		User user1=validateForgotPasswordDaoImpl.getUser(u.getUserId());

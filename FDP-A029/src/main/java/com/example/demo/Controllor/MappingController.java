@@ -29,6 +29,10 @@ public class MappingController {
 	@Autowired
 	MappingService mappingService;
 	
+	/*
+	 * Method calling the mapRequestDonar service 
+	 * to map food donar and food request requests.
+	 */
 	@GetMapping("mapRequestToDonor/{requestId}/{donorID}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> mapRequestDonor(@PathVariable String requestId,@PathVariable String donorID){
@@ -40,6 +44,9 @@ public class MappingController {
 		return new ResponseEntity<Object>(valid,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	/*
+	 * Method used to call getAllRequests service to obtain all mapped request details.
+	 */
 
 	@GetMapping("getAllMappedRequests")
 	@CrossOrigin(origins="http://localhost:4200")

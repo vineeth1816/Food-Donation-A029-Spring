@@ -15,6 +15,9 @@ import com.example.demo.Service.ForgotUserIdService;
 public class ForgotUserIdController {
 	@Autowired
 	ForgotUserIdService forgotService;
+	/*
+	 * method calling the userIdRecovery from service class.
+	 */
 
 	@PostMapping("forgotuserid")
 	@CrossOrigin(origins="http://localhost:4200")

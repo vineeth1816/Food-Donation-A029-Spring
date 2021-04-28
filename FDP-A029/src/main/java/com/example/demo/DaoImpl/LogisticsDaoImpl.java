@@ -17,6 +17,10 @@ public class LogisticsDaoImpl implements LogisticsDao{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * method used to add Logistics details in Database.
+	 */
 
 	@Override
 	public Boolean addVehicle(String Vehicleno, String Drivername, String Location) {
@@ -33,6 +37,9 @@ public class LogisticsDaoImpl implements LogisticsDao{
 		
 	}
 	
+	/*
+	 * Method used to find the Available vehicles of that particular location.
+	 */
 
 	@Override
 	public List<Vehicle> getAllRequests(String donationId) {
@@ -51,6 +58,12 @@ public class LogisticsDaoImpl implements LogisticsDao{
 		},donationId);
 		return vehicles;
 	}
+	
+	/*
+	 * method used to update the status of vehicle in logistics and 
+	 * corresponding donar request status and food request status in 
+	 * food_donation_requests and food_requests respectively in database.
+	 */
 	
 	@Override
 	public boolean updateVehicle(String Vehicleno,String donationId,String requestId) {

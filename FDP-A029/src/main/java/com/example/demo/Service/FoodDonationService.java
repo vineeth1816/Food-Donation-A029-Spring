@@ -14,23 +14,39 @@ public class FoodDonationService {
 	@Autowired
 	FoodDonationDaoImpl foodDonationDaoImpl;
 	
+	/*
+	 * Service method calling the insertRequest method in Fooddonation Implementation.
+	 */
+	
 	public FoodDonationRequest insertRequest(FoodDonationRequest foodDonationRequest) {
-		System.out.println(foodDonationRequest);
+		//System.out.println(foodDonationRequest);
 		return foodDonationDaoImpl.insertRequest(foodDonationRequest);
 	}
 	
+	/*
+	 * Service method calling the getAllRequest method in Fooddonation Implementation.
+	 */
 	public List<FoodDonationRequest> getAllRequests(){
 		return foodDonationDaoImpl.getAllRequests();
 	}
 	
+	/*
+	 * Service method calling the getRequestById method in Fooddonation Implementation.
+	 */
 	public List<FoodDonationRequest> getRequestsByUserid(String userid){
 		return foodDonationDaoImpl.getRequestsById(userid);
 	}
 	
+	/*
+	 * Service method calling the updateStatus method in Fooddonation Implementation.
+	 */
 	public Boolean updateStatus(String donationId,String status) {
 		return foodDonationDaoImpl.updateStatus(donationId,status);
 	}
 	
+	/*
+	 * Service method calling the getAllApprovedRequest method in Fooddonation Implementation.
+	 */
 	public List<FoodDonationRequest> getAllApprovedDonors(){
 		return foodDonationDaoImpl.getAllApprovedRequests();
 	}

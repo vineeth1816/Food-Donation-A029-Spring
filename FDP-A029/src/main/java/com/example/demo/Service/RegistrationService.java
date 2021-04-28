@@ -13,7 +13,7 @@ public class RegistrationService {
 	RegistrationDao reg;
 
 
-	
+	/*Service method calling the insertUser method to enter details*/
 	public User registerUser(User user) {
 
 	User u = reg.insertUser(user);

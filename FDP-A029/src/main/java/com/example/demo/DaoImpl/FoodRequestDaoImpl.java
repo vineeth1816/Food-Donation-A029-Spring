@@ -17,6 +17,9 @@ public class FoodRequestDaoImpl implements FoodRequestDao{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	/*
+	 * Method entering the details of food requester into database.
+	 */
 
 	@Override
 	public FoodRequest insertFoodRequest(FoodRequest foodRequest) {
@@ -34,6 +37,10 @@ public class FoodRequestDaoImpl implements FoodRequestDao{
 		}
 		return null;
 	}
+	
+	/*
+	 * Method used to get all the details of foodRequesters.
+	 */
 
 
 	@Override
@@ -58,6 +65,11 @@ public class FoodRequestDaoImpl implements FoodRequestDao{
 		});
 		return foodRequests;
 	}
+	
+	/*
+	 * method used to get the details of specified food requester
+	 * from the database.
+	 */
 
 	@Override
 	public List<FoodRequest> getFoodRequestsById(String userId) {
@@ -82,6 +94,10 @@ public class FoodRequestDaoImpl implements FoodRequestDao{
 		return foodRequests;
 		
 	}
+	
+	/*
+	 * Method used to update the status of the particular request id.
+	 */
 
 
 	@Override
@@ -100,7 +116,9 @@ int flag;
 		}
 		return false;
 	}
-
+	/*
+	 * method used to insert the admin request details in database.
+	 */
 
 	@Override
 	public Boolean insertAdminRequest(String requestId, String category) {

@@ -19,6 +19,11 @@ import com.example.demo.Service.FoodDonationService;
 public class FoodDonationController {
 	@Autowired
 	FoodDonationService foodDonationService;
+	
+	/*
+	 * Controller method providing details from server and passing
+	 * to service layer method of inserting food donar details.
+	 */
 
 	@PostMapping("insertDonationRequest")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -32,11 +37,23 @@ public class FoodDonationController {
 		}
 	}
 	
+	/*
+	 * Controller method calling the service of the
+	 *  service layer method to  veiw  food donar details.
+	 */
+
+	
 	@GetMapping("getAllRequests")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<FoodDonationRequest>> getAllRequests(){
 		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getAllRequests(),HttpStatus.OK);
 	}
+	
+	/*
+	 * Controller method providing details from server and passing
+	 * to service layer method of getrequestById for food donar details.
+	 */
+
 	
 	@PostMapping("getrequestsById")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -44,6 +61,11 @@ public class FoodDonationController {
 		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getRequestsByUserid(foodDonationRequest.getUserId()),HttpStatus.OK);
 	}
 	
+	/*
+	 * Controller method providing details from server and passing
+	 * to service layer method to change food donar status in  food donar details in database.
+	 */
+
 	
 	@PostMapping("changeStatus")
 	@CrossOrigin(origins="http://localhost:4200")

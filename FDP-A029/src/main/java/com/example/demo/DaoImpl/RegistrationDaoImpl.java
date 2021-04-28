@@ -13,7 +13,9 @@ public class RegistrationDaoImpl implements RegistrationDao{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
     
-	
+	/*
+	 * Method used to insert the details of newly registered user in database.
+	 */
 	
 	@Override
 	public User insertUser(User u) {
@@ -24,6 +26,7 @@ public class RegistrationDaoImpl implements RegistrationDao{
 		else
 		return null;
 	}
+	
 
 	
 	@Override

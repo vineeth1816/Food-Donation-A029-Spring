@@ -19,6 +19,11 @@ public class AdminRequestsController {
 	@Autowired
 	AdminRequestsService adminRequestsService;
 	
+	/*This method is used to
+	 * get the details of the  request raised by
+	 * admin based on category.
+	 */
+	
 	@GetMapping("getAllAdminFoodRequests/{category}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<FoodRequest>> getAllFoodRequests(@PathVariable String category){
@@ -30,6 +35,13 @@ public class AdminRequestsController {
 			return new ResponseEntity<List<FoodRequest>>(adminRequestsService.getAllFoodRequests(category),HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	/*This method is used to 
+	 * retrieve the details based on Category of user 
+	 * and sort them based on the fields required for 
+	 * sorting.
+	 * 
+	 */
 	
 	@GetMapping("getAllAdminFoodRequestsOrderBy/{category}/{column}")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -44,6 +56,9 @@ public class AdminRequestsController {
 		}
 	}
 	
+	/*
+	 * This method is used to get the request id based upon the category.
+	 */
 	
 	
 	
@@ -64,6 +79,10 @@ public class AdminRequestsController {
 		}
 		
 	}
+	/*
+	 * This method used to delete the request raised 
+	 * by the admin based on category.
+	 */
 	
 	@DeleteMapping("deleteRequest/{requestId}/{category}")
 	@CrossOrigin(origins="http://localhost:4200")

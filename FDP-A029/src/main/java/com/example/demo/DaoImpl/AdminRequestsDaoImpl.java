@@ -20,6 +20,12 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * Method retrieving the data from the Database,
+	 * selecting the details of request id based upon the 
+	 * request d in admin and the required category.
+	 */
 
 	@Override
 	public List<FoodRequest> getAllFoodRequests(String category) {
@@ -42,6 +48,11 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		
 		return foodRequests;
 	}
+	
+	/*
+	 * This method is used for retrieving the request id from
+	 * Admin_Request table in database based on category and request id.
+	 */
 
 	@Override
 	public String getRequestId(String requestId, String category) {
@@ -60,6 +71,10 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		return rId;
 	}
 
+	/*
+	 * This method is used to delete the request ID in 
+	 * Admin request table based on category.
+	 */
 	@Override
 	public Boolean deleteRequest(String requestId, String category) {
 		int flag;
@@ -73,6 +88,11 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 			return false;
 		}
 	}
+	/*
+	 * This method is used to get details of 
+	 * Request id which are present in admin request table
+	 * and get their details present in food_request table.
+	 */
 
 	@Override
 	public List<FoodRequest> getAllFoodRequestsOrderByLocation(String category) {
@@ -97,6 +117,12 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		
 		
 	}
+	/*
+	 This method is used to get details of 
+	 * Request id which are present in admin request table
+	 * and get their details present in food_request table and sorted 
+	 * based on Quantity.
+	 */
 
 	@Override
 	public List<FoodRequest> getAllFoodRequestsOrderByQuantity(String category) {
@@ -120,6 +146,13 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		return foodRequests;
 		
 	}
+	/*
+	 This method is used to get details of 
+	 * Request id which are present in admin request table
+	 * and get their details present in food_request table and sorted 
+	 * based on Occasion.
+	 */
+	
 
 	@Override
 	public List<FoodRequest> getAllFoodRequestsOrderByOccation(String category) {
@@ -142,6 +175,12 @@ public class AdminRequestsDaoImpl implements AdminRequestsDao {
 		
 		return foodRequests;
 	}
+	/*
+	 This method is used to get details of 
+	 * Request id which are present in admin request table
+	 * and get their details present in food_request table and sorted 
+	 * based on Date.
+	 */
 
 	@Override
 	public List<FoodRequest> getAllFoodRequestsOrderByDate(String category) {

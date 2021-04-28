@@ -19,6 +19,10 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * Method inserting Food donar  details into the Database.
+	 */
 
 	@Override
 	public FoodDonationRequest insertRequest(FoodDonationRequest foodDonationRequest) {
@@ -35,6 +39,11 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		}
 		return null;
 	}
+	
+	/*
+	 * Method used to getdetails of all the registered food donars from
+	 * Database.
+	 */
 
 	@Override
 	public List<FoodDonationRequest> getAllRequests() {
@@ -57,6 +66,11 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		});
 		return foodDonationRequests;
 	}
+	
+	/*
+	 * method used to retrieve details of all the donars whose requests are approved.
+	 */
+	
 	@Override
 	public List<FoodDonationRequest> getAllApprovedRequests() {
 		List<FoodDonationRequest> foodDonationRequests=jdbcTemplate.query("select * from Food_Donation_Requests where Status='Approved'", new RowMapper<FoodDonationRequest>() {
@@ -78,6 +92,10 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		});
 		return foodDonationRequests;
 	}
+	
+	/*
+	 * method to rerieve the details of donar based upon user_id.
+	 */
 
 	@Override
 	public List<FoodDonationRequest> getRequestsById(String userId) {
@@ -101,6 +119,10 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		return foodDonationRequests;
 		
 	}
+	
+	/*
+	 * Method used to update the status of the particular request. 
+	 */
 
 	@Override
 	public Boolean updateStatus(String donationId,String status) {
@@ -119,6 +141,9 @@ public class FoodDonationDaoImpl implements FoodDonationDao{
 		return false;
 	}
 	
+	/*
+	 * method used to know the status of particular donation request.
+	 */
 	
 
 	@Override

@@ -17,10 +17,15 @@ public class MappingService {
 	@Autowired
 	MappingDaoImpl mappingDaoImpl;
 
+	/*Service method used to call the mapRequestDonar method*/
 	public Boolean mapRequestDonor(String requestId,String donorId)
 	{
 		return mappingDaoImpl.mapRequestDonor(requestId, donorId);
 	}
+	
+	/*
+	 * Method used to call the getAllRequest method
+	 */
 
 	public List<MappedRequests> getAllRequests(){
 		return mappingDaoImpl.getAllRequests();
