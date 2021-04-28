@@ -5,6 +5,10 @@ import java.util.List;
 import com.example.demo.Model.FoodDonationRequest;
 
 public interface FoodDonationDao {
+	/*
+	 * FoodDonation Dao interface providing the methods 
+	 * to be implemented in FoodDonationImplementation.
+	 */
 
 	public FoodDonationRequest insertRequest(FoodDonationRequest foodDonationRequest);
 	public List<FoodDonationRequest> getAllRequests();

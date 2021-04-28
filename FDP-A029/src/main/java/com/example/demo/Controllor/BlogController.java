@@ -23,6 +23,12 @@ public class BlogController {
 
 	@Autowired
 	BlogService blogService;
+	
+	/*
+	 * Method taking the inputs from sever and passing 
+	 * the details into the addblog service method to add 
+	 *  details into blog in database. 
+	 */
 
 	@PostMapping("addBlog")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -35,6 +41,13 @@ public class BlogController {
 			return new ResponseEntity<Object>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	/*
+	 * Method taking the inputs from sever and passing 
+	 * the details into the update blog service method to update
+	 *  details into blog in database. 
+	 */
+	
 
 	@PutMapping("updateBlog")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -46,6 +59,12 @@ public class BlogController {
 			return new ResponseEntity<Object>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	/*
+	 * Method taking the inputs from sever and passing 
+	 * the details into the deleteblog service method to delete
+	 *  details in blog in database. 
+	 */
 
 
 	@DeleteMapping("deleteBlog/{id}")
@@ -59,6 +78,12 @@ public class BlogController {
 			return new ResponseEntity<Object>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	/*
+	 * Method taking the inputs from sever and passing 
+	 * the details into the veiwallblog service method to retrieve
+	 *  details from  blog in database. 
+	 */
 
 	@GetMapping("viewAllBlogs")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -69,6 +94,12 @@ public class BlogController {
 			return new ResponseEntity<List<Blog>>(s, HttpStatus.OK);
 		
 	}
+	
+	/*
+	 * Method taking the inputs from sever and passing 
+	 * the details into the getblog service method to retrieve 
+	 *  details of specified blog  from  database. 
+	 */
 	
 	@GetMapping("/getBlog/{id}")
 	@CrossOrigin(origins="http://localhost:4200")

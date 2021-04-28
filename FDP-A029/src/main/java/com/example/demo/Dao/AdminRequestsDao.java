@@ -6,6 +6,12 @@ import com.example.demo.Model.FoodRequest;
 import com.example.demo.Model.LogisticRequest;
 
 public interface AdminRequestsDao {
+	
+	/*
+	 * This is the interface for all the methods called in 
+	 * admin request services class and they are implemented
+	 * in the Dao implementation class.
+	 */
 
 	public List<FoodRequest> getAllFoodRequests(String category);
 	public List<LogisticRequest> getAllLogisticRequests(String category);

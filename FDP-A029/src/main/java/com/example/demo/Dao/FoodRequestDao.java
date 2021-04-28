@@ -5,6 +5,11 @@ import java.util.List;
 import com.example.demo.Model.FoodRequest;
 
 public interface FoodRequestDao {
+	
+	/*
+	 * Food Request Dao interface providing all the methods to
+	 * be implemented in DaoImplementation class.
+	 */
 
 	public FoodRequest insertFoodRequest(FoodRequest foodRequest);
 	public List<FoodRequest> getAllFoodRequests();

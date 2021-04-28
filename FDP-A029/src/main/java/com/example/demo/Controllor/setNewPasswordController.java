@@ -17,6 +17,9 @@ public class setNewPasswordController {
 	@Autowired
 	SetNewPasswordService setNewPasswordService;
 	
+	/*
+	 * Method calling the updatePassword service to chane password 
+	 */
 	@PostMapping("setPassword")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> setNewPassword(@RequestBody User user){

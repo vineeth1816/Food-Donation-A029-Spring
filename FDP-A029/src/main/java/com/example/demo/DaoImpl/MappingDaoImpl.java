@@ -19,6 +19,11 @@ import com.example.demo.Model.MappedRequests;
 public class MappingDaoImpl implements MappingDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * Method used to add the mapped fooddonar request and Foodrequest equest in
+	 *  the Mapped_request table of the database.
+	 */
 
 	@Override
 	public Boolean mapRequestDonor(String requestID, String donorID) {
@@ -31,6 +36,9 @@ public class MappingDaoImpl implements MappingDao {
 			return false;
 	}
 	
+	/*
+	 * Method used to retrieve all the mapped request details from Database.
+	 */
 	@Override
 	public List<MappedRequests> getAllRequests() {
 		List<MappedRequests> mappedRequests=jdbcTemplate.query("select * from Mapped_Requests", new RowMapper<MappedRequests>() {

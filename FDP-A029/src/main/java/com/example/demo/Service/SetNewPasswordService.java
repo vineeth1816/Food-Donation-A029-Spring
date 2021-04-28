@@ -11,6 +11,7 @@ public class SetNewPasswordService {
 	@Autowired
 	setPasswordDaoImpl SetPasswordDaoImpl; 
 	
+	/*Service method calling updatePassword method*/
 	public boolean updatePassword(User user) {
 		return  SetPasswordDaoImpl.updatePassword(user);
 	}

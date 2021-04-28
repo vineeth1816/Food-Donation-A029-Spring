@@ -19,6 +19,10 @@ public class BlogDaoImpl implements BlogDao{
 
 	@Autowired
 	JdbcTemplate JdbcTemplate;
+	/*
+	 * This method gets the details of 
+	 * blog of corresponding blog_id.
+	 */
 	
 	@Override
 	public Blog getBlog(int blogId) {
@@ -45,6 +49,11 @@ public class BlogDaoImpl implements BlogDao{
 		}
 		
 	}
+	
+	/*
+	 * This method is used to 
+	 * insert  the blog in the database.
+	 */
 
 	@Override
 	public Blog insertBlog(Blog blog) {
@@ -63,6 +72,9 @@ public class BlogDaoImpl implements BlogDao{
 		return null;
 	}
 	
+	/*
+	 * This method is used to update the blog in Database.
+	 */
 	
 	public Blog updateBlog(Blog blog) {
 		int flag;
@@ -80,6 +92,10 @@ public class BlogDaoImpl implements BlogDao{
 		}
 		return null;
 	}
+	
+	/*
+	 * This method is used to delete a particular blog from database.
+	 */
 
 	@Override
 	public Boolean deleteBlog(int Blog_ID) {
@@ -94,6 +110,11 @@ public class BlogDaoImpl implements BlogDao{
 		}
 		return false;
 	}
+	
+	/*
+	 * This method is used to 
+	 * retrieve all the blogs in database.
+	 */
 
 	@Override
 	public List<Blog> viewAllBlogs() {

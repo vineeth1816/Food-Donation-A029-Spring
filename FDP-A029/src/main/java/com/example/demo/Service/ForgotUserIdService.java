@@ -12,6 +12,10 @@ public class ForgotUserIdService {
 	@Autowired
 	ForgotUserIdDao forgotUserIdDao;
 	
+	/*
+	 * Service Method calling the CheckUserid method in DaoIMPL class.
+	 */
+	
 	public User userIdRecovery(User user ) {
 		User u1=new User();
 		String u_id =forgotUserIdDao.checkUserid(user.getContactNo(),user.getEmailId(),user.getSq1(),user.getSq2(),user.getSq3());

@@ -16,6 +16,9 @@ public class LoginService {
 	@Autowired
 	LoginDaoImpl loginDaoImpl;
 	
+	/*
+	 * Service method used to check the user_id and password of the user for authentication.
+	 */
 	public User loginUser(User user) {
 		User us=new User();
 		
@@ -55,6 +58,7 @@ public class LoginService {
 	
 		
 }
+	/*Service method used to get details of user*/
 	public User getUser(String user_id) {
 		return loginDaoImpl.getUser(user_id);
 	}

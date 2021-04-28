@@ -18,6 +18,8 @@ public class LoginController {
 
 	@Autowired
 	LoginService loginService;
+	
+	/*method used to check the login details of the user*/
 
 	@PostMapping("/login")
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -27,6 +29,8 @@ public class LoginController {
 		return u;
 
 	}
+	
+	/*Method used to get details of the user*/
 
 	@GetMapping("/getUser/{id}")
 	@CrossOrigin(origins = "http://localhost:4200")

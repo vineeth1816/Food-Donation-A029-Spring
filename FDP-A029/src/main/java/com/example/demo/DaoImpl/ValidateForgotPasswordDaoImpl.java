@@ -17,6 +17,10 @@ public class ValidateForgotPasswordDaoImpl implements ValidateForgotPasswordDao{
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * method used to get details of a particular user for validating.
+	 */
 
 	@Override
 	public User getUser(String userId) {

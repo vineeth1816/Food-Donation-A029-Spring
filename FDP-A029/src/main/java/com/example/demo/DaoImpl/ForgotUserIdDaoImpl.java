@@ -18,6 +18,10 @@ public class ForgotUserIdDaoImpl implements ForgotUserIdDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * Method used to retrieve user id from database based upon the Security Questions.
+	 */
 
 	@Override
 	public String checkUserid(String contactno, String email, String sq1, String sq2, String sq3) {

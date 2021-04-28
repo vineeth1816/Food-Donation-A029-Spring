@@ -22,6 +22,10 @@ public class LogisticsController {
 	@Autowired
 	LogisticsServices logisticService;
 	
+	/*
+	 * Method used to add vehicle details into the database by using the corresponding 
+	 * service method.
+	 */
 	@PostMapping("addLogistics")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object>  addLogistics(@RequestBody Vehicle v) {
@@ -39,7 +43,9 @@ public class LogisticsController {
 
 
 }
-	
+	/*
+	 * method used to get details of particular request.
+	 */
 	
 	@GetMapping("getAllAvailableLogistics/{donationId}")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -47,6 +53,9 @@ public class LogisticsController {
 		return new ResponseEntity<List<Vehicle>>(logisticService.getAllRequests(donationId),HttpStatus.OK);
 	}
 	
+	/*
+	 * method used to call updateVehicle service method to update the status of the vehicle
+	 */
 	@GetMapping("updateVehicle/{vehicleNo}/{donationId}/{requestId}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public boolean updateVehicle(@PathVariable String vehicleNo,@PathVariable String donationId,@PathVariable String requestId){

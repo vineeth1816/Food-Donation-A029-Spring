@@ -15,6 +15,10 @@ import com.example.demo.Service.ValidateForgetPasswordService;
 public class PasswordResetController {
 	@Autowired
 	ValidateForgetPasswordService ValidateForgetPasswordService;
+	
+	/*
+	 * Method used to call validateDetails service method for password resetting.
+	 */
 
 	@PostMapping("validatePasswordReset")
 	@CrossOrigin(origins="http://localhost:4200")

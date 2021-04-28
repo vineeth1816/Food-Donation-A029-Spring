@@ -17,6 +17,12 @@ public class AdminRequestsService {
 	@Autowired
 	AdminRequestsDaoImpl adminRequestsDaoImpl;
 	
+	/*
+	 * This the service method for 
+	 * sorting and retrieving the details based on 
+	 * category and sorted according to required fields.
+	 */
+	
 	public List<FoodRequest> getAllFoodRequests(String category){
 		return adminRequestsDaoImpl.getAllFoodRequests(category);
 	}
@@ -36,6 +42,11 @@ public class AdminRequestsService {
 		return adminRequestsDaoImpl.getAllFoodRequestsOrderByOccation(category);
 	}
 	
+	/*
+	 * This is the service method to get
+	 * request_id of admin based on category.
+	 */
+	
 	
 	public Boolean checkRequestId(String requestId,String category) {
 		String rid=adminRequestsDaoImpl.getRequestId(requestId, category);
@@ -45,7 +56,10 @@ public class AdminRequestsService {
 		return false;
 	}
 	
-	
+	/*
+	 * This is the service method to delete the request
+	 * raised by admin on the basis of category. 
+	 */
 	public Boolean deleteRequest(String requestId,String category) {
 		return adminRequestsDaoImpl.deleteRequest(requestId, category);
 	}

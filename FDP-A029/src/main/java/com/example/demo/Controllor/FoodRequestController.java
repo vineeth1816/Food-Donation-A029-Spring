@@ -23,6 +23,10 @@ public class FoodRequestController {
 	FoodRequestService foodRequestService;
 	@Autowired
 	FoodDonationService foodDonationService;
+	
+	/*
+	 * Controller method used to insert the food request details.
+	 */
 
 	@PostMapping("insertFoodRequest")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -36,6 +40,9 @@ public class FoodRequestController {
 		}
 	}
 	
+	/*
+	 * Controller method used to retrieve all  the food request details.
+	 */
 	@GetMapping("getAllFoodRequests")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<FoodRequest>> getAllFoodRequests(){
@@ -43,11 +50,18 @@ public class FoodRequestController {
 		return new ResponseEntity<List<FoodRequest>>(foodRequestService.getAllFoodRequests(),HttpStatus.OK);
 	}
 	
+	/*
+	 * Controller method used to get details  the food request of a specified Requester.
+	 */
 	@PostMapping("getFoodRequestById")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<List<FoodRequest>> getRequestsById(@RequestBody FoodRequest foodRequest){
 		return new ResponseEntity<List<FoodRequest>>(foodRequestService.getFoodRequestsByUserid(foodRequest.getUserId()),HttpStatus.OK);
 	}
+	
+	/*
+	 * Controller method used to update the food request status of a particular user.
+	 */
 	
 	@PostMapping("changeFoodRequestStatus")
 	@CrossOrigin(origins="http://localhost:4200")
@@ -62,6 +76,9 @@ public class FoodRequestController {
 		return new ResponseEntity<List<FoodDonationRequest>>(foodDonationService.getAllApprovedDonors(),HttpStatus.OK);
 	}
 	
+	/*
+	 * Controller method used to insert the admin food request details.
+	 */
 	@GetMapping("insertAdminRequest/{requestId}/{category}")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object> insertAdminRequest(@PathVariable String requestId,@PathVariable String category){

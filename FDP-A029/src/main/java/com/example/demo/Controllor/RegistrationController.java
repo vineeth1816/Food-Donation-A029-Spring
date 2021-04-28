@@ -18,6 +18,9 @@ public class RegistrationController{
 	@Autowired
 	RegistrationService registrationService;
 	
+	/*
+	 * Method calling the registerUser service to add new user details into database
+	 */
 	@PostMapping("/register")
 	@CrossOrigin(origins="http://localhost:4200")
 	public ResponseEntity<Object>  registerUser(@RequestBody User u) {

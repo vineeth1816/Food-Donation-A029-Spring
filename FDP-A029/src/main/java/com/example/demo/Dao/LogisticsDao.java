@@ -6,6 +6,10 @@ import com.example.demo.Model.FoodDonationRequest;
 import com.example.demo.Model.Vehicle;
 
 public interface LogisticsDao {
+	
+	/*
+	 * Interface providing the methods for Dao implementation.
+	 */
 
 	public Boolean addVehicle(String Vehicleno,String Drivername,String Location);
 	public List<Vehicle> getAllRequests(String donationId);

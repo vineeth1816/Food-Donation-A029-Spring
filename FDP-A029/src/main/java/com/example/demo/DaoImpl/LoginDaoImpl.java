@@ -17,6 +17,10 @@ public class LoginDaoImpl implements LoginDao{
 		
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * method to get the password for particular user_id from Database.
+	 */
 
 	@Override
 	public String getPassword(String userId) {
@@ -28,6 +32,10 @@ public class LoginDaoImpl implements LoginDao{
 			return null;
 		}
 	}
+	
+	/*
+	 * method used to retrieve username of an user.
+	 */
 
 	@Override
 	public String getUserId(String userId) {
@@ -39,6 +47,11 @@ public class LoginDaoImpl implements LoginDao{
 			return null;
 		}
 		}
+	/*
+	 * method to retrieve details of a particular user.
+	 */
+	
+	
 
 	@Override
 	public User getUser(String user_id) {

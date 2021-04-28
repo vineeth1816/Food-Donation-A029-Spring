@@ -11,6 +11,10 @@ import com.example.demo.Model.User;
 public class setPasswordDaoImpl implements setPasswordDao{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	/*
+	 * method used to update and set new password in database.
+	 */
 
 	@Override
 	public boolean updatePassword(User user) {
